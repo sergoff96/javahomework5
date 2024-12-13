@@ -1,8 +1,8 @@
-package org.example.payment.service;
+package org.example.service;
 
-import org.example.payment.dao.PaymentDAO;
-import org.example.payment.entity.Payment;
-import org.example.product.entity.UserProduct;
+import org.example.entity.Payment;
+import org.example.entity.UserProduct;
+import org.example.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +14,12 @@ import java.math.BigDecimal;
 @Service
 public class PaymentService {
 
-    private final PaymentDAO paymentDAO;
+    private final PaymentRepository paymentRepository;
     private final RestTemplate restTemplate;
 
     @Autowired
-    public PaymentService(PaymentDAO paymentDAO, RestTemplate restTemplate) {
-        this.paymentDAO = paymentDAO;
+    public PaymentService(PaymentRepository paymentRepository, RestTemplate restTemplate) {
+        this.paymentRepository = paymentRepository;
         this.restTemplate = restTemplate;
     }
 
@@ -46,6 +46,6 @@ public class PaymentService {
         payment.setAmount(amount);
         payment.setProductId(productId);
         payment.setStatus("COMPLETED");
-        paymentDAO.savePayment(payment);
+        paymentRepository.save(payment);
     }
 }

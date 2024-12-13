@@ -1,6 +1,6 @@
-package org.example.payment.controller;
+package org.example.controller;
 
-import org.example.payment.service.PaymentService;
+import org.example.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
