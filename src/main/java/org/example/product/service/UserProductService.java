@@ -1,7 +1,7 @@
-package org.example.userproduct.service;
+package org.example.product.service;
 
-import org.example.userproduct.dao.UserProductDAO;
-import org.example.userproduct.entity.UserProduct;
+import org.example.product.dao.UserProductDAO;
+import org.example.product.entity.UserProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

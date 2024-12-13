@@ -1,7 +1,7 @@
-package org.example.userproduct.controller;
+package org.example.product.controller;
 
-import org.example.userproduct.entity.UserProduct;
-import org.example.userproduct.service.UserProductService;
+import org.example.product.service.UserProductService;
+import org.example.product.entity.UserProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +23,15 @@ public class UserProductController {
     @GetMapping("/{id}/getAllProducts")
     public ResponseEntity<List<UserProduct>> getAllProducts(@PathVariable Long id) {
         List<UserProduct> products = userProductService.getAllProductsByUserId(id);
+        if (products.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(products);
+    }
+
+    @GetMapping("/getAllProductsByUserId")
+    public ResponseEntity<List<UserProduct>> getAllProductsByUserId(@RequestParam Long userId) {
+        List<UserProduct> products = userProductService.getAllProductsByUserId(userId);
         if (products.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

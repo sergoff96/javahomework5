@@ -1,6 +1,6 @@
-package org.example.userproduct.dao;
+package org.example.product.dao;
 
-import org.example.userproduct.entity.UserProduct;
+import org.example.product.entity.UserProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
